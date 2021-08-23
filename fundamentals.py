@@ -57,6 +57,18 @@ def primitive_datatypes_and_operators():
     # Exponentiation
     print(f"2**8 = {2**8}")                 # 256
 
+    # More arithmetic comparisons
+    print(f"1 < 10 = {1 < 10}")                     # True
+    print(f"1 > 10 = {1 > 10}")                     # False
+    print(f"2 <= 2 = {2 <= 2}")                     # True
+    print(f"2 >= 2 = {2 >= 2}")                     # True
+
+    # consider assosiation
+    print(f"1 < 2 and 2 < 3 = {1 < 2 and 2 < 3}")   # True
+    print(f"2 < 3 and 3 < 2 = {2 < 3 and 3 < 2}")   # False
+    print(f"1 < 2 < 3 = {1 < 2 < 3}")               # True
+    print(f"1 < 2 < 2 = {1 < 2 < 2}")               # False
+
 
 # https://docs.python.org/3.9/reference/expressions.html#operator-precedence
 # version 2021-08-23
@@ -164,7 +176,25 @@ def boolean_operators():
         print(f"bool({i}) = {bool(i)}")             # always True, except bool(0) = False
 
 
+def equality_identity():
+    # Equality
+    print(f"1 == 1 = {1 == 1}")                     # True
+    print(f"42 == 2 = {42 == 2}")                   # False
 
+    # Inequaility
+    print(f"1 != 1 = {1 != 1}")                     # False
+    print(f"42 != 2 = {42 != 2}")                   # True
+
+    # in opposite to Java syntax, keyword  is  compares object reference, == compares value equality.
+    a = [1, 2, 3, 4]                                # Point a at a new list, [1, 2, 3, 4]
+    print(f"a = {a}")
+    b = a                                           # Point b at what a is pointing to
+    print(f"b is a = {b is a}")                     # True, a and b refer to the same object
+    print(f"b == a = {b == a}")                     # True, a's and b's objects are equal
+    b = [1, 2, 3, 4]                                # Point b at a new list, [1, 2, 3, 4]
+    print(f"b = {b}")
+    print(f"b is a = {b is a}")                     # False, a and b do not refer to the same object
+    print(f"b == a = {b == a}")                     # True, a's and b's objects are equal
 
 
 def loops():
@@ -176,6 +206,6 @@ if __name__ == '__main__':
     execute_in_pycharm()
     primitive_datatypes_and_operators()
     boolean_operators()
-    # equality_identity()
+    equality_identity()
     # loops()
     # operator_precedence()
