@@ -51,8 +51,63 @@ def primitive_datatypes_and_operators():
 
     # Modulo
     print(f"7 % 3 = {7 % 3}")       # 1
+    # i % j have the same sign as j, unlike C
+    print(f"-7 % 3 = {-7 % 3}")  # 2
+
+    # power
+    print(f"2**8 = {2**8}")         # 256
+
+
+# https://docs.python.org/3.9/reference/expressions.html#operator-precedence
+# version 2021-08-23
+def operator_precedence():
+    print(f"42")
+    # Operator                                      Description
+
+    # (expressions...),                             Binding or parenthesized expression, list display,
+    # [expressions...],                             dictionary display, set display
+    # {key: value...},
+    # {expressions...}
+
+    # x[index], x[index:index],                     Subscription, slicing, call, attribute reference
+    # x(arguments...), x.attribute
+
+    # await x                                       Await expression
+
+    # **                                            Exponentiation
+
+    # +x, -x, ~x                                    Positive, negative, bitwise NOT
+
+    # *, @ , /, //, %                               Multiplication, matrix multiplication, division,
+    #                                               floor division, remainder
+
+    # +, -                                          Addition and subtraction
+
+    # <<, >>                                        Shifts
+
+    # &                                             Bitwise AND
+
+    # ^                                             Bitwise XOR
+
+    # |                                             Bitwise OR
+
+    # in, not in, is, is not,                       Comparisons,including membership tests and identity tests
+    # <, <=, >, >=, !=, ==
+
+    # not x                                         Boolean NOT
+
+    # and                                           Boolean AND
+
+    # or                                            Boolean OR
+
+    # if – else                                     Conditional expression
+
+    # lambda                                        Lambda expression
+
+    # :=                                            Assignment expression
 
 
 if __name__ == '__main__':
     # execute_in_pycharm()
     primitive_datatypes_and_operators()
+    operator_precedence()
