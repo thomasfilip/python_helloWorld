@@ -36,7 +36,7 @@ def primitive_datatypes_and_operators():
     print(f"8 - 1 = {8 + 1}")
     print(f"5 * 2 = {5 * 2}")
     # implicite type cast
-    print(f"9 / 3 = {9 / 3}")       # 3.0
+    print(f"9 / 3 = {9 / 3}")               # 3.0
 
     # Integer division rounds down for both positive and negative numbers.
     print(f"5 // 3 = {5 // 3}")             # 1
@@ -47,21 +47,21 @@ def primitive_datatypes_and_operators():
     print(f"5 // 3.0 = {5 // 3.0}")         # 1.0
 
     # The result of division is always a float
-    print(f"10.0 / 3 = {10.0 / 3}")  # 3.3333333333333335
+    print(f"10.0 / 3 = {10.0 / 3}")         # 3.3333333333333335
 
     # Modulo
-    print(f"7 % 3 = {7 % 3}")       # 1
+    print(f"7 % 3 = {7 % 3}")               # 1
     # i % j have the same sign as j, unlike C
     print(f"-7 % 3 = {-7 % 3}")  # 2
 
-    # power
-    print(f"2**8 = {2**8}")         # 256
+    # Exponentiation
+    print(f"2**8 = {2**8}")                 # 256
 
 
 # https://docs.python.org/3.9/reference/expressions.html#operator-precedence
 # version 2021-08-23
 def operator_precedence():
-    print(f"42")
+    print(f"operator_precedence")
     # Operator                                      Description
 
     # (expressions...),                             Binding or parenthesized expression, list display,
@@ -107,7 +107,75 @@ def operator_precedence():
     # :=                                            Assignment expression
 
 
+def boolean_operators():
+    # Boolean values are also primitive types.
+    print(f"True = {True}")
+    print(f"False = {False}")
+    # print(f"false = {false}")     throws an error
+
+    # Boolean values are also primitive types.
+    print(f"not True = {not True}")
+    print(f"not False = {not False}")
+
+    # Note "and" and "or" are case-sensitive.
+    print(f"True and False = {True and False}")
+    print(f"True or False = {True or False}")
+    print(f"(True or False) and (True or False) = {(True or False) and (True or False)}")
+
+    # https://docs.python.org/3.9/reference/expressions.html#boolean-operations (version 2021-08-23)
+    # The expression  x and y  first evaluates x;
+    # if x is false, its value is returned; otherwise, y is evaluated and the resulting value is returned.
+    # The expression  x or y  first evaluates x;
+    # if x is true, its value is returned; otherwise, y is evaluated and the resulting value is returned.
+    # Note that neither  and  nor  or  restrict the value and type they return to False and True,
+    # but rather return the last evaluated argument.
+    print(f"'' and foo = { '' or 'foo'}")           # 'foo'
+    # Because  not  has to create a new value, it returns a boolean value regardless of the type of its argument.
+    print(f"not 'foo' = {not 'foo'}")               # False rather then ''
+
+    # True and False are actually 1 and 0 but with different keywords.
+    print(f"True + True = {True + True}")           # 1 + 1 = 2
+    print(f"True * 42 = {True * 42}")               # 1 * 42 = 42
+    print(f"False - 5 = {False - 5}")               # 0 -5 = -5
+
+    # Comparison operators look at the numerical value of True and False
+    print(f"True == 1 = {True == 1}")               # 1 == 1 = True
+    print(f"False == 0 = {False == 0}")             # 0 == 0 = True
+    print(f"False != -5 = {False != -5}")           # 0 != -5 = True
+    print(f"False <= True = {False <= True}")       # 0 <= 1 = True
+
+    # Using boolean logical operators on ints casts them to booleans for evaluation,
+    # but their non-cast value is returned.
+    # Don't mix up with bool(ints) and bitwise and/or (&,|)
+    print(f"0 and 0 = {0 and 0}")                   # 0
+    print(f"0 and 2 = {0 and 2}")                   # 0
+    print(f"0 and -5 = {0 and -5}")                 # 0
+    print(f"42 and 42 = {42 and 42}")               # 42
+
+    # note short circuit evaluation: x and y -> if x == False, return x; x or y -> if x False, return y.
+    print(f"0 and 2 = {0 and 2}")                   # 0, because left operand is False and is returned before cast.
+    print(f"-5 or 0 = {-5 or 0}")                   # -5, because left operand is False and is returned before cast.
+    # https://docs.python.org/3.9/library/stdtypes.html#truth (version 2021-08-23)
+    # truth Value Testing: always returns True, unless
+    # - defined to be False or None
+    # - zero of any numeric type: 0, 0.0, 0j, Decimal(0), Fraction(0, 1)
+    # - empty sequences and collections: '', (), [], {}, set(), range(0)
+    for i in range(-100, 100):
+        print(f"bool({i}) = {bool(i)}")             # always True, except bool(0) = False
+
+
+
+
+
+def loops():
+    for i in range(-100, 100):
+        print(f"bool({i}) = {bool(i)}")
+
+
 if __name__ == '__main__':
-    # execute_in_pycharm()
+    execute_in_pycharm()
     primitive_datatypes_and_operators()
-    operator_precedence()
+    boolean_operators()
+    # equality_identity()
+    # loops()
+    # operator_precedence()
