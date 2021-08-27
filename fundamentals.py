@@ -167,13 +167,44 @@ def boolean_operators():
     # note short circuit evaluation: x and y -> if x == False, return x; x or y -> if x False, return y.
     print(f"0 and 2 = {0 and 2}")                   # 0, because left operand is False and is returned before cast.
     print(f"-5 or 0 = {-5 or 0}")                   # -5, because left operand is False and is returned before cast.
-    # https://docs.python.org/3.9/library/stdtypes.html#truth (version 2021-08-23)
-    # truth Value Testing: always returns True, unless
-    # - defined to be False or None
-    # - zero of any numeric type: 0, 0.0, 0j, Decimal(0), Fraction(0, 1)
-    # - empty sequences and collections: '', (), [], {}, set(), range(0)
+
+
+# https://docs.python.org/3.9/library/stdtypes.html#truth (version 2021-08-23)
+# truth Value Testing: always returns True, unless
+# - defined to be False or None
+# - zero of any numeric type: 0, 0.0, 0j, Decimal(0), Fraction(0, 1)
+# - empty sequences and collections: '', (), [], {}, set(), range(0)
+def truth_value_testing():
     for i in range(-100, 100):
         print(f"bool({i}) = {bool(i)}")             # always True, except bool(0) = False
+
+    # The sole value of the type NoneType.
+    # None is frequently used to represent the absence of a value,
+    # as when default arguments are not passed to a function.
+    # Assignments to None are illegal and raise a SyntaxError.
+    print(f"None == None => {None == None}")       # == compares value. => True
+
+    print(f"None == False => {None == False}")     # == compares value. None has not the same value as False. => False
+
+    print(f"False == False => {False == False}")   # has same Value (integer 0). => True
+
+    print(f"None == 0 => {None == 0}")             # has not the same Value. => False
+
+    # Because of this confusion better use bool().
+    print(f"bool(None) => {bool(None)}")
+    print(f"bool(False) => {bool(False)}")
+    print(f"bool(0) => {bool(0)}")
+    print(f"bool(0.0) => {bool(0.0)}")
+    print(f"bool(0j) => {bool(0j)}")
+
+    # As mentioned: empty sequences and collections: '', (), [], {}, set(), range(0)
+    print(f"bool('') => {bool('')}")
+    print(f'bool("") => {bool("")}')
+    print(f"bool(()) => {bool(())}")
+    print(f"bool([]) => {bool([])}")
+    print("bool({}) => " f"{bool({})}")
+    print(f"bool(set()) => {bool(set())}")
+    print(f"bool(range(0)) => {bool(range(0))}")
 
 
 def equality_identity():
@@ -197,6 +228,27 @@ def equality_identity():
     print(f"b == a = {b == a}")                     # True, a's and b's objects are equal
 
 
+def strings():
+    print(f"this is a string.")
+    print(f'this is also a string.')
+    print(f"this is possible {'also'}")
+    print(f'this {"as well"}')
+
+    print(f"stings " "can " "be " "concatinated.")
+    print(f"stings " + "can " + "be " + "concatinated " + "also " + "this " + "way.")
+
+    # A string can be treated like a list of characters
+    print(f"Hello Python"[0])
+    for i in range(len("String")):
+        print(f"String"[i])
+
+    # Length of a string.
+    print(f"{len('Five!')}")                                    # 5
+
+    name = "Alice"
+    print(f"{name} is {len(name)} characters long.")
+
+
 def loops():
     for i in range(-100, 100):
         print(f"bool({i}) = {bool(i)}")
@@ -206,6 +258,8 @@ if __name__ == '__main__':
     execute_in_pycharm()
     primitive_datatypes_and_operators()
     boolean_operators()
-    equality_identity()
+    truth_value_testing()
+    # equality_identity()
+    # strings()
     # loops()
     # operator_precedence()
