@@ -227,6 +227,12 @@ def equality_identity():
     print(f"b is a = {b is a}")                     # False, a and b do not refer to the same object
     print(f"b == a = {b == a}")                     # True, a's and b's objects are equal
 
+    # https://docs.python.org/3.9/library/constants.html?highlight=none#None (version 2021-08-28)
+    # Don't use the equality "==" symbol to compare objects to None.
+    # Use "is" instead. This checks for equality of object identity.
+    print(f"'foo' is None => {'foo' is None}")      # False
+    print(f"'None' is None => {None is None}")      # True
+
 
 def strings():
     print(f"this is a string.")
@@ -259,7 +265,7 @@ if __name__ == '__main__':
     primitive_datatypes_and_operators()
     boolean_operators()
     truth_value_testing()
-    # equality_identity()
+    equality_identity()
     # strings()
     # loops()
     # operator_precedence()
