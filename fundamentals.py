@@ -14,6 +14,7 @@
 # the __name__ variable will be set as __main__ if the module that is being run is the main program.
 # But if the code is importing the module from another module,
 # then the __name__  variable will be set to that module’s name.
+import random
 import sys
 
 
@@ -305,6 +306,23 @@ def cli_input():
     print(f"{var_input}")
 
 
+# https://docs.python.org/3.9/tutorial/controlflow.html#if-statements (version 2021-08-28)
+# https://docs.python.org/3.9/reference/compound_stmts.html#the-if-statement (version 2021-08-28)
+# There can be zero or more elif parts, and the else part is optional.
+# The keyword ‘elif’ is short for ‘else if’, and is useful to avoid excessive indentation.
+# An if … elif … elif … sequence is a substitute for the switch or case statements found in other languages.
+def control_flow_if_else():
+    if random.randint(0, 10) == 0:
+        print(f"zero")
+    elif random.randint(0, 10) == 1:
+        print(f"one")
+    else:
+        print(f"between 2 and 10")
+
+    # If can be used as an expression Equivalent of C's '?:' ternary operator (or Java).
+    print(f"{'zero' if random.randint(0, 1) == 0 else 'one'}")
+
+
 def loops():
     for i in range(-100, 100):
         print(f"bool({i}) = {bool(i)}")
@@ -319,5 +337,6 @@ if __name__ == '__main__':
     strings()
     operator_precedence()
     function_print()
-    cli_input()
+    # cli_input()
+    control_flow_if_else()
     # loops()
