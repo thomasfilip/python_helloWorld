@@ -182,29 +182,29 @@ def truth_value_testing():
     # None is frequently used to represent the absence of a value,
     # as when default arguments are not passed to a function.
     # Assignments to None are illegal and raise a SyntaxError.
-    print(f"None == None => {None == None}")       # == compares value. => True
+    print(f"None == None => {None == None}")        # == compares value. => True
 
-    print(f"None == False => {None == False}")     # == compares value. None has not the same value as False. => False
+    print(f"None == False => {None == False}")      # == compares value. None has not the same value as False. => False
 
-    print(f"False == False => {False == False}")   # has same Value (integer 0). => True
+    print(f"False == False => {False == False}")    # has same Value (integer 0). => True
 
-    print(f"None == 0 => {None == 0}")             # has not the same Value. => False
+    print(f"None == 0 => {None == 0}")              # has not the same Value. => False
 
     # Because of this confusion better use bool().
-    print(f"bool(None) => {bool(None)}")
-    print(f"bool(False) => {bool(False)}")
-    print(f"bool(0) => {bool(0)}")
-    print(f"bool(0.0) => {bool(0.0)}")
-    print(f"bool(0j) => {bool(0j)}")
+    print(f"bool(None) => {bool(None)}")            # False
+    print(f"bool(False) => {bool(False)}")          # False
+    print(f"bool(0) => {bool(0)}")                  # False
+    print(f"bool(0.0) => {bool(0.0)}")              # False
+    print(f"bool(0j) => {bool(0j)}")                # False
 
     # As mentioned: empty sequences and collections: '', (), [], {}, set(), range(0)
-    print(f"bool('') => {bool('')}")
-    print(f'bool("") => {bool("")}')
-    print(f"bool(()) => {bool(())}")
-    print(f"bool([]) => {bool([])}")
-    print("bool({}) => " f"{bool({})}")
-    print(f"bool(set()) => {bool(set())}")
-    print(f"bool(range(0)) => {bool(range(0))}")
+    print(f"bool('') => {bool('')}")                # False
+    print(f'bool("") => {bool("")}')                # False
+    print(f"bool(()) => {bool(())}")                # False
+    print(f"bool([]) => {bool([])}")                # False
+    print("bool({}) => " f"{bool({})}")             # False
+    print(f"bool(set()) => {bool(set())}")          # False
+    print(f"bool(range(0)) => {bool(range(0))}")    # False
 
 
 def equality_identity():
