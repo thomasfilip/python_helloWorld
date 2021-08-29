@@ -449,17 +449,66 @@ def data_structure_tupel():
     e, d = d, e                                     # d is now 5 and e is now 4
 
 
+def data_structure_set():
+    empty_set = set()
+    prefilles_set = {1, 1, 2, 2, 3, 4}
+    print(f"{prefilles_set}")                       # {1, 2, 3, 4}
+
+    # Elements of a set have to be immutable.
+    # invalid_set = {[42]}                          # TypeError: unhashable type: 'list'
+    # a = ['a']
+    # invalid_set = {a}                             # TypeError: unhashable type: 'list'
+    valid_set = {(1,), 2}
+
+    # Add a new element into the set. Duplicates are not stored.
+    s1 = {1, 2, 3}
+    s1.add(42)
+    s1.add(42)
+    print(f"{s1}")                                  # {1, 2, 3, 42}
+
+    # Intersect (Schnitt)
+    print(f"{s1 & {2, 3, 98, 99}}")                 # {2, 3}
+
+    # Union (Vereinigung)
+    print(f"{s1 | {2, 3, 98, 99} }")                # {1, 2, 3, 99, 98, 42}
+
+    # Difference
+    print(f"{s1 - {2, 3, 98, 99} }")                # {1, 42}
+
+    # https://docs.python.org/3/tutorial/datastructures.html (version 2021-08-29)
+    # Symmetric difference (exklusives oder; outer join)
+    print(f"{s1 ^ {2, 3, 4}}")                      # {1, 4, 42}
+
+    # Check if set on the left is a superset of set on the right
+    print(f"{ {1, 2} >= {1, 2, 3}}")                # => False
+
+    # Check if set on the left is a subset of set on the right
+    print(f"{ {1, 2} <= {1, 2, 3}}")                # => True
+
+    # Check for existence in a set with in
+    print(f"{2 in s1}")                             # => True
+    print(f"{10 in s1}")                            # => False
+
+    # Make a 1 layer deep copy (into a new set object)
+    filled_set = s1.copy()                          # filled_set == {1, 2, 3, 42}
+    print(f"{filled_set is s1}")                    # => False
+
+    # Clear set.
+    s1.clear()
+
+
 if __name__ == '__main__':
-    # execute_in_pycharm()
-    # primitive_datatypes_and_operators()
-    # boolean_operators()
-    # truth_value_testing()
-    # equality_identity()
-    # strings()
-    # operator_precedence()
-    # function_print()
-    # cli_input()
-    # control_flow_if_else()
-    # loops()
-    # data_structure_list()
+    execute_in_pycharm()
+    primitive_datatypes_and_operators()
+    boolean_operators()
+    truth_value_testing()
+    equality_identity()
+    strings()
+    operator_precedence()
+    function_print()
+    cli_input()
+    control_flow_if_else()
+    loops()
+    data_structure_list()
     data_structure_tupel()
+    data_structure_set()
