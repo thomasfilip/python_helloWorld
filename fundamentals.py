@@ -234,8 +234,12 @@ def equality_identity():
     # https://docs.python.org/3.9/library/constants.html?highlight=none#None (version 2021-08-28)
     # Don't use the equality "==" symbol to compare objects to None.
     # Use "is" instead. This checks for equality of object identity.
-    print(f"'foo' is None => {'foo' is None}")      # False
-    print(f"'None' is None => {None is None}")      # True
+    # print(f"'foo' is None => {'foo' is None}")      # False
+    # print(f"'None' is None => {None is None}")      # True
+    # https://adamj.eu/tech/2020/01/21/why-does-python-3-8-syntaxwarning-for-is-literal/ (version 2021-08-29)
+    # Adam says, since python 3.8 we should use identity check only when realy needed.
+    print(f"'foo' == None => {'foo' == None}")      # False
+    print(f"'None' == None => {None == None}")      # True
 
 
 def strings():
@@ -328,6 +332,92 @@ def loops():
         print(f"bool({i}) = {bool(i)}")
 
 
+def data_structure_list():
+    # Lists store sequences.
+    list = []
+    # You can start with a prefilled list
+    other_list = [4, 5, 6]
+
+    # Add stuff to the end.
+    list.append(0)
+    list.append(1)
+    list.append(42)
+    list.append("3")
+    print(f"{list}")                                # [0, 1, 42, '3']
+
+    # Indexing like Java.
+    print(f"{list[0]}")                             # => 0
+    print(f"{list[3]}")                             # => "3"
+
+    # Reverse Indexing, not like Java.
+    print(f"{list[-1]}")                            # => "3"
+
+    # But IndexError like IndexOutOfBound in Java.
+    # print(f"{list[-5]}")                          # IndexError
+    # print(f"{list[5]}")                           # IndexError
+
+    list.pop()                                      # Remove and return item at index (default last).
+                                                    # Raises IndexError if list is empty or index is out of range
+    print(f"{list}")                                # [0, 1, 42]
+    list.pop(0)
+    print(f"{list}")                                # [1, 42]
+    list.pop(-1)
+    print(f"{list}")                                # [1]
+
+    # Inserts on index.
+    list.insert(0, 0)
+    list.insert(2, 42)
+    list.insert(20, "3")                            # no IndexError, object will be appendend to the end.
+    print(f"{list}")                                # [0, 1, 42, '3']
+
+    # Using slice syntax to look at ranges: list[start:end(excluded):step]
+    print(f"{list[1:3]}")                           # [   1, 42     ]
+    print(f"{list[1:]}")                            # [   1, 42, '3']
+    print(f"{list[:3]}")                            # [0, 1, 42     ]
+    print(f"{list[::2]}")                           # [0,    42,    ]
+    print(f"{list[::-1]}")                          # ['3', 42, 1, 0] reverse order.
+
+    # list2 = list is creating a variable with the same reference (shallow copy).
+    # To create a 1 layer deep copy use
+    list2 = list[:]
+
+    # Remove arbitrary elements from a list with keyword del.
+    del list2[2]
+    print(f"{list2}")                               # [0, 1, '3']
+
+    # Remove first occurrence of a value (and also object?)
+    list2.remove("3")
+    print(f"{list2}")                               # [0, 1]
+    # list2.remove("3")                             # ValueError: list.remove(x): x not in list
+
+    # Get index of first occurence item (and object as well?)
+    print(f"{list.index('3')}")                     # => index 3
+    # print(f"{list.index('foo')}")                 # ValueError: 'foo' is not in list
+
+    # Lists can be added with + operator, but the origin lists are not affected by this.
+    l1 = [0, 1]
+    l2 = [10, 11]
+    print(f"{l1 + l2}")
+    l3 = l1 + l2                                    # l3 ==[0, 1, 10, 11]
+    print(f"{'l1: ', l1, 'l2: ', l2, 'l3: ', l3}")
+
+    # You can extend a given list. I will stay the same object.
+    l1 = [0, 1]
+    l2 = [10, 11]
+    l1.extend([1337, 42])
+    l1.extend(l2)
+    print(f"{l1}")                                  # l1 == [0, 1, 1337, 42, 10, 11]
+
+    # Get lenght of list.
+    print(f"{len(l1)}")                             # => 6
+
+    # Check for existence in a list with "in".
+    print(f"[0, 1] in l1: {[0, 1] in l1}")          # => False
+    print(f"(0 in l1) and (1 in l1): {(0 in l1) and (1 in l1)}")  # => True
+    print(f"l2 in l1: {l2 in l1}")                  # => False
+    print(f"{42}")
+
+
 if __name__ == '__main__':
     execute_in_pycharm()
     primitive_datatypes_and_operators()
@@ -337,6 +427,7 @@ if __name__ == '__main__':
     strings()
     operator_precedence()
     function_print()
-    # cli_input()
+    cli_input()
     control_flow_if_else()
-    # loops()
+    loops()
+    data_structure_list()
