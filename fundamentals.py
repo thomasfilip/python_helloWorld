@@ -497,6 +497,61 @@ def data_structure_set():
     s1.clear()
 
 
+# key value table.
+# Note - for Python versions < 3.7, dictionary key ordering is not guaranteed.
+# However, as of Python 3.7, dictionary items maintain the order at which they are inserted into the dictionary.
+def data_structure_dictionary():
+    empty_dict = {}
+    prefilled_dict = {"one": 1, "two": 2, "three": 3}
+    d1 = {"one": 1, "two": 2, "three": 3}
+
+    # Note keys for dictionaries have to be immutable types. This is to ensure that
+    # the key can be converted to a constant hash value for quick look-ups.
+    # Immutable types include ints, floats, strings, tuples.
+    valid_dict = {(1, 2, 3): [1, 2, 3]}             # tupels of ints as keys
+    valid_dict = {(1,): 1, (2,): 2, (3,): 3}        # tupels of ints as keys; both are equal
+    valid_dict2 = {1: 1, 2: 2, 3: 3}
+    # invalid_dict = {[1, 2, 3]: "123"}             # TypeError: unhashable type: 'list'
+
+    # get value by key
+    print(f"{d1['two']}")                           # 2
+
+    # Create iterable of keys as list.
+    print(f"{list(d1.keys())}")                     # ['one', 'two', 'three']
+
+    # Create iterable of values as list.
+    print(f"{list(d1.values())}")                   # [1, 2, 3]
+
+    # Check for existence of keys in a dictionary with "in"
+    print(f"{'one' in d1}")                         # => True
+    print(f"{42 in d1}")                            # => False
+
+    # Looking up a non-existing key is a KeyError.
+    # print(f"{d1['four']}")                        # KeyError
+
+    # Use "get()" method to avoid the KeyError.
+    print(f"{d1.get('one')}")                       # => 1
+    print(f"{d1.get('four')}")                      # => None
+    # The get method supports a default argument when the value is missing.
+    print(f"{d1.get('one', 4)}")                    # => 1
+    print(f"{d1.get('four', 4)}")                   # => 4
+
+    # "setdefault()" inserts into a dictionary only if the given key isn't present.
+    d1.setdefault("five", 55)                       # d1["five"] is set to 5
+    print(f"{d1.get('five')}")                      # 5, even key "five" is not present.
+    d1.setdefault("five", 66)                       # d1["five"] is still 5, cannot be overwritten.
+    print(f"{d1.get('five')}")                      # 5, even key "five" is not present.
+    d1["five"] = 5
+    print(f"{d1.get('five')}")                      # 5, because key is present.
+
+    # Inserting into a dictionary.
+    d1["six"] = 6
+    d1.update({"six": 6})                           # Does the same.
+
+    # Removing keys.
+    del d1["six"]
+
+
 if __name__ == '__main__':
     execute_in_pycharm()
     primitive_datatypes_and_operators()
@@ -512,3 +567,4 @@ if __name__ == '__main__':
     data_structure_list()
     data_structure_tupel()
     data_structure_set()
+    data_structure_dictionary()
