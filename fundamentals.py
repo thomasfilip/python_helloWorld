@@ -330,8 +330,32 @@ def control_flow_if_else():
 
 
 def loops():
-    for i in range(-100, 100):
-        print(f"bool({i}) = {bool(i)}")
+    # For loops iterate over lists.
+    for e in ["one", "two", "three"]:
+        print(f"{e}")
+
+    # range(int, int) returns a sequence and is iterable as well; range(start included, end excluded)
+    for e in range(-4, 5):
+        print(f"bool({e}) = {bool(e)}")             # -4 .. 4
+
+    # range(int) returns sequence starting with 0, ending with end excluded.
+    for e in range(5):
+        print(f"bool({e}) = {bool(e)}")             # 0 .. 4
+
+    # range(start, end, sep)
+    for i in range(0, 8, 2):
+        print(f"{i}")                               # 0, 2, 4, 6 (excluding 8)
+
+    # To loop over a list, and retrieve both the index and the value of each item in the list.
+    animals = ["dog", "cat", "mouse"]
+    for i, value in enumerate(animals):
+        print(i, value)
+
+    #
+    i = 0
+    while i < 4:
+        print(f"{i}")
+        i += 1
 
 
 def data_structure_list():
@@ -555,18 +579,18 @@ def data_structure_dictionary():
 
 
 if __name__ == '__main__':
-    # execute_in_pycharm()
-    # primitive_datatypes_and_operators()
-    # boolean_operators()
-    # truth_value_testing()
-    # equality_identity()
-    # strings()
-    # operator_precedence()
-    # function_print()
-    # cli_input()
-    # control_flow_if_else()
-    # loops()
-    # data_structure_list()
-    # data_structure_tupel()
-    # data_structure_set()
-    # data_structure_dictionary()
+    execute_in_pycharm()
+    primitive_datatypes_and_operators()
+    boolean_operators()
+    truth_value_testing()
+    equality_identity()
+    strings()
+    operator_precedence()
+    function_print()
+    cli_input()
+    control_flow_if_else()
+    loops()
+    data_structure_list()
+    data_structure_tupel()
+    data_structure_set()
+    data_structure_dictionary()
