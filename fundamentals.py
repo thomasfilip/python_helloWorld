@@ -358,6 +358,28 @@ def loops():
         i += 1
 
 
+def try_except():
+    try:
+        if random.randint(0, 3) == 0:
+            raise IndexError("This is an IndexError")
+        elif random.randint(0, 3) == 1:
+            raise TypeError("This is an TypeError")
+        elif random.randint(0, 3) == 2:
+            raise NameError("This is an NameError")
+        else:
+            pass
+    except IndexError as err:
+        print(err)
+        pass
+    except (TypeError, NameError) as err:
+        print(err)
+        pass
+    else:
+        print("else is optional in a try block")
+    finally:
+        print("Execution guaranteed")
+
+
 def data_structure_list():
     # Lists store sequences.
     list = []
@@ -590,6 +612,7 @@ if __name__ == '__main__':
     cli_input()
     control_flow_if_else()
     loops()
+    try_except()
     data_structure_list()
     data_structure_tupel()
     data_structure_set()
