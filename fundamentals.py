@@ -320,8 +320,10 @@ def control_flow_if_else():
         print(f"zero")
     elif random.randint(0, 10) == 1:
         print(f"one")
+    elif random.randint(0, 10) == 2:
+        print(f"two")
     else:
-        print(f"between 2 and 10")
+        print(f"between 3 and 10")
 
     # If can be used as an expression Equivalent of C's '?:' ternary operator (or Java).
     print(f"{'zero' if random.randint(0, 1) == 0 else 'one'}")
@@ -553,18 +555,18 @@ def data_structure_dictionary():
 
 
 if __name__ == '__main__':
-    execute_in_pycharm()
-    primitive_datatypes_and_operators()
-    boolean_operators()
-    truth_value_testing()
-    equality_identity()
-    strings()
-    operator_precedence()
-    function_print()
-    cli_input()
-    control_flow_if_else()
-    loops()
-    data_structure_list()
-    data_structure_tupel()
-    data_structure_set()
-    data_structure_dictionary()
+    # execute_in_pycharm()
+    # primitive_datatypes_and_operators()
+    # boolean_operators()
+    # truth_value_testing()
+    # equality_identity()
+    # strings()
+    # operator_precedence()
+    # function_print()
+    # cli_input()
+    # control_flow_if_else()
+    # loops()
+    # data_structure_list()
+    # data_structure_tupel()
+    # data_structure_set()
+    # data_structure_dictionary()
