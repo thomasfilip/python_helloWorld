@@ -600,20 +600,39 @@ def data_structure_dictionary():
     del d1["six"]
 
 
+# https://docs.python.org/3.9/tutorial/inputoutput.html#reading-and-writing-files (version 2021-08-29)
+# The first argument is a string containing the filename.
+# The second argument is another string containing a few characters describing the way in which the file will be used.
+# mode can be 'r' when the file will only be read,
+# 'w' for only writing (an existing file with the same name will be erased),
+# and 'a' opens the file for appending; any data written to the file is automatically added to the end.
+# 'r+' opens the file for both reading and writing.
+# The mode argument is optional; 'r' will be assumed if it’s omitted.
+def file():
+    # Equivalent to 'with ressources' in Java.
+    with open(file="mergeSort.txt") as f:
+        for line in f:
+            print(line)
+
+    with open(file="myfile.txt", mode="a") as f:
+        f.write("hallo5\n")
+
+
 if __name__ == '__main__':
-    execute_in_pycharm()
-    primitive_datatypes_and_operators()
-    boolean_operators()
-    truth_value_testing()
-    equality_identity()
-    strings()
-    operator_precedence()
-    function_print()
-    cli_input()
-    control_flow_if_else()
-    loops()
-    try_except()
-    data_structure_list()
-    data_structure_tupel()
-    data_structure_set()
-    data_structure_dictionary()
+    # execute_in_pycharm()
+    # primitive_datatypes_and_operators()
+    # boolean_operators()
+    # truth_value_testing()
+    # equality_identity()
+    # strings()
+    # operator_precedence()
+    # function_print()
+    # cli_input()
+    # control_flow_if_else()
+    # loops()
+    # try_except()
+    # data_structure_list()
+    # data_structure_tupel()
+    # data_structure_set()
+    # data_structure_dictionary()
+    file()
