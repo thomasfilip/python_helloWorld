@@ -610,6 +610,7 @@ def data_structure_dictionary():
 # The mode argument is optional; 'r' will be assumed if it’s omitted.
 def file():
     # Equivalent to 'with ressources' in Java.
+    # https://www.tutorialspoint.com/data_structures_algorithms/merge_sort_algorithm.htm (version 2021-08-29)
     with open(file="mergeSort.txt") as f:
         for line in f:
             print(line)
@@ -618,21 +619,63 @@ def file():
         f.write("hallo5\n")
 
 
+# Python offers a fundamental abstraction called the Iterable.
+# An iterable is an object that can be treated as a sequence.
+# The object returned by the range() function, is an iterable.
+def iterator():
+    filled_dict = {"one": 1, "two": 2, "three": 3}
+    iterable1 = filled_dict.keys()
+    print(f"{iterable1}")                            # => dict_keys(['one', 'two', 'three'])
+                                                    # This is an object that implements our Iterable interface.
+    # Let's loop over it.
+    for e in iterable1:
+        print(f"{e}")                               # => "one" => "two" => "three"
+
+    # Adressing / accessing via index is not possible.
+    # print(f"{iterable[0]}")                       # TypeError: 'dict_keys' object is not subscriptable
+
+    # An iterable is an object that knows how to create an iterator.
+    iterator1 = iter(iterable1)
+
+    # Our iterator is an object that can remember the state as we traverse through it.
+    # We get the next object with "next()".
+    print(f"{next(iterator1)}")                     # => "one"
+
+    # It maintains state as we iterate.
+    print(f"{next(iterator1)}")                     # => "two"
+    print(f"{next(iterator1)}")                     # => "three"
+
+    # After the iterator has returned all of its data, it raises a StopIteration exception.
+    # print(f"{next(iterator1)}")                   # Raises StopIteration
+
+    # We can also loop over it, in fact, "for" does this implicitly.
+    # But it is neccessary to create new itorator, because the old one is 'used up'.
+    iterator2 = iter(iterable1)
+    for e in iterator2:
+        print(f"{e}")                               # => "one" => "two" => "three"
+
+    # You can grab all the elements of an iterable or iterator by calling list() on it.
+    print(f"{list(iterable1)}")                     # => ["one", "two", "three"]
+    print(f"{list(iterable1)}")                     # yet no iterator invorlved.
+    print(f"{list(iterator1)}")                     # => [] because state is saved
+
+
 if __name__ == '__main__':
-    # execute_in_pycharm()
-    # primitive_datatypes_and_operators()
-    # boolean_operators()
-    # truth_value_testing()
-    # equality_identity()
-    # strings()
-    # operator_precedence()
-    # function_print()
-    # cli_input()
-    # control_flow_if_else()
-    # loops()
-    # try_except()
-    # data_structure_list()
-    # data_structure_tupel()
-    # data_structure_set()
-    # data_structure_dictionary()
+    execute_in_pycharm()
+    primitive_datatypes_and_operators()
+    boolean_operators()
+    truth_value_testing()
+    equality_identity()
+    strings()
+    operator_precedence()
+    function_print()
+    cli_input()
+    control_flow_if_else()
+    loops()
+    try_except()
+    data_structure_list()
+    data_structure_tupel()
+    data_structure_set()
+    data_structure_dictionary()
     file()
+    iterator()
