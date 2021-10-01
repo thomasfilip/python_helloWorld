@@ -749,26 +749,35 @@ def create_adder(x):
     return adder
 
 
+# Lambda expressions are used to create anonymous functions.
+# The expression  lambda arguments: expression  yields a function object.
+# Note that functions created with lambda expressions cannot contain statements or annotations.
+def anonymous_functions():
+    print(f"{(lambda x: x > 2)(3)}")                # => True
+    print(f"{(lambda x, y: x ** 2 + y ** 2)(2, 1)}")  # => 5
+
+
 if __name__ == '__main__':
-    execute_in_pycharm()
-    primitive_datatypes_and_operators()
-    boolean_operators()
-    truth_value_testing()
-    equality_identity()
-    strings()
-    operator_precedence()
-    function_print()
-    cli_input()
-    control_flow_if_else()
-    loops()
-    try_except()
-    data_structure_list()
-    data_structure_tupel()
-    data_structure_set()
-    data_structure_dictionary()
-    file()
-    iterator()
-    functions()
-    function_scope_local()
-    function_scope_global()
-    first_class_function()
+    # execute_in_pycharm()
+    # primitive_datatypes_and_operators()
+    # boolean_operators()
+    # truth_value_testing()
+    # equality_identity()
+    # strings()
+    # operator_precedence()
+    # function_print()
+    # cli_input()
+    # control_flow_if_else()
+    # loops()
+    # try_except()
+    # data_structure_list()
+    # data_structure_tupel()
+    # data_structure_set()
+    # data_structure_dictionary()
+    # file()
+    # iterator()
+    # functions()
+    # function_scope_local()
+    # function_scope_global()
+    # first_class_function()
+    anonymous_functions()
