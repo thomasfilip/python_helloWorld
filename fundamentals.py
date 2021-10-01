@@ -757,27 +757,53 @@ def anonymous_functions():
     print(f"{(lambda x, y: x ** 2 + y ** 2)(2, 1)}")  # => 5
 
 
+# There are built-in higher order functions.
+# Compareable to Streams in Java. An example here is python map() and max() function.
+def higher_order_functions():
+    add_10 = (lambda x: x + 10)
+    print(f"{map(add_10, [1, 2, 3])}")              # => <map object at 0x000001D931C0DB80>
+    print(f"{list(map(add_10, [1, 2, 3]))}")        # => [11, 12, 13]
+
+    # map() uses max as function, then 2 lists to iterate with max() through them.
+    print(f"{list(map(max, [1, 2, 3], [4, 2, 1]))}")  # => [4, 2, 3]
+
+    # Return an iterator yielding those items of iterable for which function(item) is True.
+    # If function is None, return the items that are True.
+    print(f"{list(filter(lambda x: x > 5, [3, 4, 5, 6, 7]))}")  # => [6, 7]
+
+    # We can use list comprehensions for nice maps and filters.
+    # List comprehension stores the output as a list which can itself be a nested list.
+    add_20 = (lambda x: x + 10)
+    print(f"{[add_20(i) for i in [1, 2, 3]]}")      # => [11, 12, 13]  notice that loop is insid of list[].
+    print(f"{[x for x in [3, 4, 5, 6, 7] if x > 5]}")  # => [6, 7]  notice that loop is insid of list[].
+
+    # You can construct set and dict comprehensions as well.
+    print({x for x in 'abcddeef' if x not in 'abc'})  # => {'d', 'e', 'f'}
+    print({x: x ** 2 for x in range(5)})            # => {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+
 if __name__ == '__main__':
-    # execute_in_pycharm()
-    # primitive_datatypes_and_operators()
-    # boolean_operators()
-    # truth_value_testing()
-    # equality_identity()
-    # strings()
-    # operator_precedence()
-    # function_print()
-    # cli_input()
-    # control_flow_if_else()
-    # loops()
-    # try_except()
-    # data_structure_list()
-    # data_structure_tupel()
-    # data_structure_set()
-    # data_structure_dictionary()
-    # file()
-    # iterator()
-    # functions()
-    # function_scope_local()
-    # function_scope_global()
-    # first_class_function()
+    execute_in_pycharm()
+    primitive_datatypes_and_operators()
+    boolean_operators()
+    truth_value_testing()
+    equality_identity()
+    strings()
+    operator_precedence()
+    function_print()
+    cli_input()
+    control_flow_if_else()
+    loops()
+    try_except()
+    data_structure_list()
+    data_structure_tupel()
+    data_structure_set()
+    data_structure_dictionary()
+    file()
+    iterator()
+    functions()
+    function_scope_local()
+    function_scope_global()
+    first_class_function()
     anonymous_functions()
+    higher_order_functions()
