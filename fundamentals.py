@@ -723,39 +723,52 @@ def swap(x, y):
     return y, x
 
 
-x = 42
+z = 42
 # See line above: local var x not the same as global variable x
 def function_scope_local():
-    x = 'python'
-    print(f"local variable x is in scope: {x}")     # => 'python'
+    z = 'python'
+    print(f"local variable x is in scope: {z}")     # => 'python'
 
 
-x = 42
+z = 42
 # See line above: to access global variable x, use the keyword 'global'.
 def function_scope_global():
-    global x
-    print(f"global variable x is in scope: {x}")     # => 42
+    global z
+    print(f"global variable x is in scope: {z}")     # => 42
+
+
+# Python has first class functions
+def first_class_function():
+    add_10 = create_adder(5)
+    print(f"{add_10(37)}")                          # => 42
+
+
+def create_adder(x):
+    def adder(y):
+        return x + y
+    return adder
 
 
 if __name__ == '__main__':
-    # execute_in_pycharm()
-    # primitive_datatypes_and_operators()
-    # boolean_operators()
-    # truth_value_testing()
-    # equality_identity()
-    # strings()
-    # operator_precedence()
-    # function_print()
-    # cli_input()
-    # control_flow_if_else()
-    # loops()
-    # try_except()
-    # data_structure_list()
-    # data_structure_tupel()
-    # data_structure_set()
-    # data_structure_dictionary()
-    # file()
-    # iterator()
-    # functions()
+    execute_in_pycharm()
+    primitive_datatypes_and_operators()
+    boolean_operators()
+    truth_value_testing()
+    equality_identity()
+    strings()
+    operator_precedence()
+    function_print()
+    cli_input()
+    control_flow_if_else()
+    loops()
+    try_except()
+    data_structure_list()
+    data_structure_tupel()
+    data_structure_set()
+    data_structure_dictionary()
+    file()
+    iterator()
+    functions()
     function_scope_local()
     function_scope_global()
+    first_class_function()
