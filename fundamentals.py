@@ -234,8 +234,8 @@ def equality_identity():
     # https://docs.python.org/3.9/library/constants.html?highlight=none#None (version 2021-08-28)
     # Don't use the equality "==" symbol to compare objects to None.
     # Use "is" instead. This checks for equality of object identity.
-    # print(f"'foo' is None => {'foo' is None}")      # False
-    # print(f"'None' is None => {None is None}")      # True
+    # print(f"'foo' is None => {'foo' is None}")     # False
+    # print(f"'None' is None => {None is None}")     # True
     # https://adamj.eu/tech/2020/01/21/why-does-python-3-8-syntaxwarning-for-is-literal/ (version 2021-08-29)
     # Adam says, since python 3.8 we should use identity check only when realy needed.
     print(f"'foo' == None => {'foo' == None}")      # False
@@ -660,6 +660,69 @@ def iterator():
     print(f"{list(iterator1)}")                     # => [] because state is saved
 
 
+# Use "def" to create new functions-
+def functions():
+    print(f"{add(5, 37)}")                          # => 42
+    print(f"{add(b=37, a=5)}")                      # => 42, keyword arguments can arrive in any order.
+    print(f"{varargs1(5, 6, 4)}")                   # => (5, 6, 4) returns a tupel.
+    print(f"{varargs1()}")                          # => () returns an empty tupel.
+    print(f"{varargs2(5, 6, 4)}")                   # => 15
+    print(f"{varargs2()}")                          # => 0 You don't have to call witch variables.
+    print(f"{keyword_args(one=1, two=2)}")          # => {'one': 1, 'two': 2} Returns a dictionary.
+    all_the_args1(37, 5, x=5, y=9)                  # => (37, 5) {'x': 5, 'y': 9}
+
+    args = (37, 5)
+    kwargs = {"x": 5, "y": 9}
+    all_the_args1(*args)                            # equivalent to all_the_args1(37, 5)
+    all_the_args1(**kwargs)                         # equivalent to all_the_args1(x=5, y=9)
+    all_the_args1(*args, **kwargs)                  # equivalent to all_the_args1(37, 5, x=5, y=9)
+
+    # all_the_args2(x=5, y=9, 37, 5)                # => syntx error: * parameter after ** parameter
+
+    print(f"swap(2, 4) => {swap(2, 4)}")            # => tupel (4, 2)
+
+
+# return keyword returns value.
+def add(a, b):
+    return a + b
+
+
+# You can define functions that take a variable number of positional arguments.
+def varargs1(*args):
+    return args
+
+
+# Multiple arguments are added to a sum.
+def varargs2(*args):
+    ans = 0
+    for e in args:
+        ans = ans + e
+    return ans
+
+
+# You can define functions that take a variable number of keyword arguments, as well.
+def keyword_args(**kwargs):
+    return kwargs
+
+
+# You can do both at once, if you like.
+def all_the_args1(*args, **kwargs):
+    print(f"{args} {kwargs}")
+    # return args, kwargs
+
+
+# You can do both at once, but the order musst be *args first (tupel), then **kwargs (dictionary).
+# def all_the_args2(**kwargs, *args):
+#     print(f"{args} {kwargs}")
+#     # return args, kwargs
+
+
+# Returning multiple values (with tuple assignments)
+# Return multiple values as a tuple without the parenthesis (they are optional here).
+def swap(x, y):
+    return y, x
+
+
 if __name__ == '__main__':
     execute_in_pycharm()
     primitive_datatypes_and_operators()
@@ -679,3 +742,4 @@ if __name__ == '__main__':
     data_structure_dictionary()
     file()
     iterator()
+    functions()
