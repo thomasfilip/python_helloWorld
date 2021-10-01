@@ -660,7 +660,7 @@ def iterator():
     print(f"{list(iterator1)}")                     # => [] because state is saved
 
 
-# Use "def" to create new functions-
+# Use "def" to create new functions.
 def functions():
     print(f"{add(5, 37)}")                          # => 42
     print(f"{add(b=37, a=5)}")                      # => 42, keyword arguments can arrive in any order.
@@ -723,23 +723,39 @@ def swap(x, y):
     return y, x
 
 
+x = 42
+# See line above: local var x not the same as global variable x
+def function_scope_local():
+    x = 'python'
+    print(f"local variable x is in scope: {x}")     # => 'python'
+
+
+x = 42
+# See line above: to access global variable x, use the keyword 'global'.
+def function_scope_global():
+    global x
+    print(f"global variable x is in scope: {x}")     # => 42
+
+
 if __name__ == '__main__':
-    execute_in_pycharm()
-    primitive_datatypes_and_operators()
-    boolean_operators()
-    truth_value_testing()
-    equality_identity()
-    strings()
-    operator_precedence()
-    function_print()
-    cli_input()
-    control_flow_if_else()
-    loops()
-    try_except()
-    data_structure_list()
-    data_structure_tupel()
-    data_structure_set()
-    data_structure_dictionary()
-    file()
-    iterator()
-    functions()
+    # execute_in_pycharm()
+    # primitive_datatypes_and_operators()
+    # boolean_operators()
+    # truth_value_testing()
+    # equality_identity()
+    # strings()
+    # operator_precedence()
+    # function_print()
+    # cli_input()
+    # control_flow_if_else()
+    # loops()
+    # try_except()
+    # data_structure_list()
+    # data_structure_tupel()
+    # data_structure_set()
+    # data_structure_dictionary()
+    # file()
+    # iterator()
+    # functions()
+    function_scope_local()
+    function_scope_global()
